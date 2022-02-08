@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "projects": {
+    "fugu": "apps/fugu",
+    "ssr": "apps/ssr",
+
+    "icons": "libs/icons",
+    "styles": "libs/styles"
+  }
+}

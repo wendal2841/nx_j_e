@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "compiled",
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": "./",
+    "strict": true,
+    "paths": {
+      "@fugu/*": ["apps/fugu/src/*"],
+      "@ssr/*": ["apps/ssr/src/*"],
+
+      "@icons/*": ["libs/icons/src/*"],
+      "@styles/*": ["libs/styles/src/*"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

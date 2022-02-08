@@ -1,0 +1,44 @@
+@import "libs/styles/src/scss/colors";
+@import "libs/styles/src/scss/transitions";
+
+$sizes: (
+  xs: 16px,
+  sm: 20px,
+  md: 24px,
+  lg: 32px,
+  xlg: 40px,
+);
+
+$appearances: (
+  blue: $blue-static,
+  red: $red-static,
+  green: $green-static,
+  orange: $orange-static,
+  violet: $violet-static,
+  gray: $gray,
+  gray_dark: $gray-dark,
+  gray_soft: $gray-soft,
+  black: $black,
+  white: $white,
+);
+
+.icon {
+  transition: fill $transition, transform $transition;
+
+  /* Sizes */
+  @each $key, $value in $sizes {
+    &_size_#{''+$key+''} {
+      width: map-get($sizes, $key);
+      height: map-get($sizes, $key);
+    }
+  }
+
+  /* Appearances */
+  @each $key, $value in $appearances {
+    /* Primary */
+    &_appearance_#{''+$key+''} {
+      fill: map-get($appearances, $key);
+    }
+  }
+}
+

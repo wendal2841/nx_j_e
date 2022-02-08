@@ -1,0 +1,64 @@
+{
+  "root": "apps/fugu",
+  "sourceRoot": "apps/fugu/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/fugu",
+        "index": "apps/fugu/src/index.html",
+        "baseHref": "/",
+        "main": "apps/fugu/src/main.tsx",
+        "polyfills": "apps/fugu/src/polyfills.ts",
+        "tsConfig": "apps/fugu/tsconfig.app.json",
+        "assets": ["apps/fugu/src/assets"],
+        "styles": [],
+        "scripts": [],
+        "generatePackageJson": true,
+        "webpackConfig": "apps/fugu/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/fugu/src/environments/environment.ts",
+              "with": "apps/fugu/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "fugu:build",
+        "proxyConfig": "apps/fugu/proxy.conf.json",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "fugu:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/fugu/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
